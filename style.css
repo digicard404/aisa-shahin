@@ -158,3 +158,33 @@ body {
     background: #f7e4c0;
     color: #6b7440;
 }
+@media (max-width:480px){
+
+    .container{
+        width:calc(100% - 20px);
+        padding:15px;
+    }
+
+    .timer-grid{
+        gap:8px;
+    }
+
+    .time-number{
+        font-size:22px;
+    }
+
+    .time-label{
+        font-size:12px;
+    }
+
+    .timer-title,
+    .rsvp-title{
+        font-size:18px;
+    }
+
+    .location-btn,
+    .yes-btn,
+    .no-btn{
+        font-size:15px;
+    }
+}
