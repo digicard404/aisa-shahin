@@ -34,29 +34,49 @@ function updateTimer() {
 setInterval(updateTimer, 1000) 
 
 
+// ===============================
+// ارسال پیامک تایید حضور
+// ===============================
 function sendRSVP(status) {
-    let name = document.getElementById("guestName").value.trim();
 
-    if (!name) {
+    // گرفتن نام مهمان
+    let name = document.getElementById("guestName").value;
+
+    // اگر نام وارد نشده بود
+    if (!name.trim()) {
         alert("لطفاً اسم خود را وارد کنید 🌸");
         return;
     }
 
-    // شماره مقصد پیامک با کد کشور ایران
-    let phone = "989122073151";
+    // شماره مقصد
+    let phone = "09034976165";
 
+    // متن پیام
     let text = "";
 
+    // اگر حضور دارد
     if (status === "yes") {
-        text = `سلام، من ${name} هستم.\nبرای مراسم میام 🌸`;
-    } else {
-        text = `سلام، من ${name} هستم.\nمتأسفانه نمی‌تونم بیام 💐`;
+
+        text = `سلام
+من ${name} هستم.
+با افتخار در مراسم شما حضور خواهیم داشت. 🌸`;
+
     }
 
-    // ساخت لینک باز کردن برنامه پیامک
-    const smsLink =
-        `sms:${phone}?body=${encodeURIComponent(text)}`;
+    // اگر حضور ندارد
+    else {
+
+        text = `سلام
+من ${name} هستم.
+متأسفانه امکان حضور در مراسم را نداریم.
+آرزوی بهترین‌ها را برایتان داریم. 💐`;
+
+    }
+
+    // ساخت لینک پیامک
+    let smsURL = `sms:${phone}?body=${encodeURIComponent(text)}`;
 
     // باز کردن برنامه پیامک
-    window.location.href = smsLink;
+    window.location.href = smsURL;
+
 }
