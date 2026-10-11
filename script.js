@@ -49,7 +49,7 @@ function sendRSVP(status) {
     }
 
     // شماره مقصد
-    let phone = "09034976165";
+    let phone = "09122073151";
 
     // متن پیام
     let text = "";
