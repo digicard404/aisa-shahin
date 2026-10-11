@@ -35,28 +35,28 @@ setInterval(updateTimer, 1000)
 
 
 function sendRSVP(status) {
-    let name = document.getElementById("guestName").value;
+    let name = document.getElementById("guestName").value.trim();
 
-    if (!name.trim()) {
+    if (!name) {
         alert("لطفاً اسم خود را وارد کنید 🌸");
         return;
     }
 
-    // شماره sms مقصد
-    let phone = "989122073151"; // ← اینجا شماره عروس یا خودت +98
+    // شماره مقصد پیامک با کد کشور ایران
+    let phone = "989122073151";
 
     let text = "";
 
     if (status === "yes") {
         text = `سلام، من ${name} هستم.\nبرای مراسم میام 🌸`;
     } else {
-        text = `سلام، من ${name} هستم.\nمتاسفانه نمی‌تونم بیام 💐`;
+        text = `سلام، من ${name} هستم.\nمتأسفانه نمی‌تونم بیام 💐`;
     }
 
-    
-    // باز کردن برنامه پیامک با متن آماده
+    // ساخت لینک باز کردن برنامه پیامک
     const smsLink =
-        `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+        `sms:${phone}?body=${encodeURIComponent(text)}`;
 
+    // باز کردن برنامه پیامک
     window.location.href = smsLink;
 }
