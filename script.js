@@ -42,8 +42,8 @@ function sendRSVP(status) {
         return;
     }
 
-    // شماره واتساپ مقصد
-    let phone = "989122587341"; // ← اینجا شماره عروس یا خودت +98
+    // شماره sms مقصد
+    let phone = "989122073151"; // ← اینجا شماره عروس یا خودت +98
 
     let text = "";
 
@@ -53,6 +53,10 @@ function sendRSVP(status) {
         text = `سلام، من ${name} هستم.\nمتاسفانه نمی‌تونم بیام 💐`;
     }
 
-    let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
+    
+    // باز کردن برنامه پیامک با متن آماده
+    const smsLink =
+        `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+
+    window.location.href = smsLink;
 }
